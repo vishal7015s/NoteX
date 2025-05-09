@@ -26,7 +26,7 @@ exports.resetPasswordToken = async(req, res) => {
                                         {new: true}
                                     );
 
-        const url = `http://localhost:5173/update-password/${token}`
+        const url = `https://notex-server-trq8.onrender.com/update-password/${token}`
 
         await mailSender(email, "password reset link", `password reset link : ${url}`);
 
