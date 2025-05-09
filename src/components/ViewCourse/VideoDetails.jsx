@@ -435,7 +435,6 @@ const VideoDetails = () => {
           )}
         </Player>
       )}
-      fnjngvfsvn sn
       <h1 className="mt-4 text-3xl font-semibold">{videoData?.title || "Untitled Video"}</h1>
       <p className="pt-2 pb-6">{videoData?.description || "No description available"}</p>
     </div>

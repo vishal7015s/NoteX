@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// function profileDropDown() {
-//   return (
-//     <div>profileDropDown</div>
-//   )
-// }
-
-// export default profileDropDown
-
-
 import { useRef, useState } from "react"
 import { AiOutlineCaretDown } from "react-icons/ai"
 import { VscDashboard, VscSignOut } from "react-icons/vsc"

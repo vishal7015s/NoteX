@@ -31,7 +31,7 @@ function ViewCourse() {
     },[]);
   return (
     <>
-        <div>
+        <div className='flex'>
             <VideoDetailsSlider setReviewModal={setReviewModal}/>
 
             <div>
