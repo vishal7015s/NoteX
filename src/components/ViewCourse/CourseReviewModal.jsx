@@ -142,7 +142,7 @@ function CourseReviewModal({setReviewModal}) {
 
   return (
     <div className="fixed inset-0 z-[1000] flex items-center justify-center  bg-opacity-50 backdrop-blur-sm">
-      <div className="w-full max-w-[500px] rounded-lg bg-richblack-800 p-6 shadow-lg">
+      <div className="w-full max-w-[500px]  bg-gray-200 rounded-lg bg-richblack-800 p-6 shadow-lg">
         {/* Modal Header */}
         <div className="flex items-center justify-between border-b border-richblack-600 pb-4">
           <h3 className="text-xl font-semibold text-richblack-5">Add Review</h3>
