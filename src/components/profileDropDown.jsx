@@ -26,7 +26,7 @@ export default function ProfileDropDown({ mobileClose }) {
           alt={`profile-${user?.firstName}`}
           className="aspect-square w-8 rounded-full object-cover ring-2 ring-amber-400 transform hover:scale-110 transition-all duration-300 shadow-sm"
         />
-        <AiOutlineCaretDown className="text-md text-gray-200 transition-transform duration-300 group-hover:rotate-180" />
+        <AiOutlineCaretDown className="text-sm text-gray-200 transition-transform duration-300 group-hover:rotate-180" />
       </div>
       {open && (
         <div

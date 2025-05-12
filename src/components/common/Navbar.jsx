@@ -4,12 +4,11 @@ import { NavbarLinks } from '../../data/navbar-links';
 import { useSelector } from 'react-redux';
 import { FaBars, FaTimes } from "react-icons/fa";
 import ProfileDropDown from "../profileDropDown"
+import ProfileDropDownMobile from "../ProfileDropDownMobile"
 import { apiConnector } from '../../services/apiConnector';
 import { categories } from '../../services/apis';
 import { TfiArrowCircleDown } from "react-icons/tfi";
-// import { FaCartShopping } from "react-icons/fa6";
-import { BsCart4 } from "react-icons/bs";
-
+import { FaCartShopping } from "react-icons/fa6";
 
 function Navbar() {
     const {token} = useSelector( (state) => state.auth);
@@ -121,7 +120,11 @@ function Navbar() {
                                 </Link>
                             </>
                         ) : (
-                            <ProfileDropDown />
+                            <ProfileDropDownMobile 
+                                subLinks={subLinks} 
+                                catalogDropdownOpen={catalogDropdownOpen} 
+                                setCatalogDropdownOpen={setCatalogDropdownOpen}
+                            />
                         )}
                     </div>
 
@@ -129,7 +132,7 @@ function Navbar() {
                     <div className='hidden md:flex items-center space-x-6'>
                         {user && user?.accountType !== "Instructor" && (
                             <Link to="/dashboard/cart" className='relative text-gray-200 hover:text-amber-400 group'>
-                                <BsCart4 size={24} className='transform group-hover:scale-110 transition-transform duration-200' />
+                                <FaCartShopping size={24} className='transform group-hover:scale-110 transition-transform duration-200' />
                                 {totalItems > 0 && (
                                     <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full animate-bounce'>
                                         {totalItems}
@@ -213,7 +216,7 @@ function Navbar() {
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         <span className='mr-2'>Cart</span>
-                                        <BsCart4/>
+                                        <FaCartShopping />
                                         {totalItems > 0 && (
                                             <span className='ml-2 bg-red-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full animate-pulse'>
                                                 {totalItems}
@@ -241,7 +244,12 @@ function Navbar() {
                                     </div>
                                 ) : (
                                     <div className='mt-3 px-4'>
-                                        <ProfileDropDown mobileClose={() => setMobileMenuOpen(false)} />
+                                        <ProfileDropDownMobile 
+                                            subLinks={subLinks} 
+                                            catalogDropdownOpen={catalogDropdownOpen} 
+                                            setCatalogDropdownOpen={setCatalogDropdownOpen}
+                                            mobileClose={() => setMobileMenuOpen(false)}
+                                        />
                                     </div>
                                 )}
                             </div>

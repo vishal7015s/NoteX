@@ -64,7 +64,7 @@ function Dashboard() {
 
                     {/* mobile view add after all fix  */}
 
-                    {/* <NavLink
+                    <NavLink
                         to="/dashboard/settings"
                         className={({ isActive }) =>
                             `flex flex-col items-center p-2 rounded-lg ${
@@ -74,8 +74,8 @@ function Dashboard() {
                     >
                         <Icons.VscSettingsGear size={24} className="transform hover:scale-110 transition-transform duration-200" />
                         <span className='text-xs font-medium'>Settings</span>
-                    </NavLink> */}
-                    <button
+                    </NavLink>
+                    {/* <button
                         onClick={() =>
                             setConfirmationModal({
                                 text1: "Are you sure?",
@@ -90,11 +90,11 @@ function Dashboard() {
                     >
                         <VscSignOut size={24} className="transform hover:scale-110 transition-transform duration-200" />
                         <span className='text-xs font-medium'>Logout</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
-            {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
+            {/* {confirmationModal && <ConfirmationModal modalData={confirmationModal} />} */}
         </div>
     )
 }
