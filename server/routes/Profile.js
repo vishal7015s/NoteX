@@ -4,10 +4,10 @@ const router = express.Router();
 
 const { auth, isInstructor } = require("../middlewares/auth")
 const {
-    deleteAccount,
-    updateProfileInfo,
+  deleteAccount,
+  updateProfile,
   getAllUserDetails,
-  updateProfilePicture,
+  updateDisplayPicture,
   getEnrolledCourses,
   instructorDashboard,
   //mene kiya
@@ -18,10 +18,10 @@ const {
 //                                      Profile routes
 // ********************************************************************************************************
 // Delet User Account
-router.delete("/delete-account", auth, deleteAccount)
-router.put("/update-profile-info", auth, updateProfileInfo)
+router.delete("/deleteAccount", auth, deleteAccount)
+router.put("/updateProfile", auth, updateProfile)
 router.get("/user-details", auth, getAllUserDetails)
-router.put("/update-profile-pic", auth, updateProfilePicture)
+router.put("/updateDisplayPicture", auth, updateDisplayPicture)
 // router.put("/update-profile-pic", updateProfilePicture)
 // Get Enrolled Courses
     // mene kiya
