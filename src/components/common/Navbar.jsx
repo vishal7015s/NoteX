@@ -8,7 +8,7 @@ import ProfileDropDownMobile from "../ProfileDropDownMobile"
 import { apiConnector } from '../../services/apiConnector';
 import { categories } from '../../services/apis';
 import { TfiArrowCircleDown } from "react-icons/tfi";
-import { FaCartShopping } from "react-icons/fa6";
+import { BsCart4 } from "react-icons/bs";
 
 function Navbar() {
     const {token} = useSelector( (state) => state.auth);
@@ -69,7 +69,7 @@ function Navbar() {
                                                 onClick={toggleCatalogDropdown}
                                                 className='flex items-center text-gray-200 hover:text-amber-400 font-medium text-lg transition-colors duration-200 group'
                                             >
-                                                {link.title}
+                                                Courses
                                                 <TfiArrowCircleDown className={`ml-2 transition-transform duration-300 ${catalogDropdownOpen ? 'transform rotate-180' : ''} group-hover:rotate-180`} />
                                             </button>
 
@@ -132,7 +132,7 @@ function Navbar() {
                     <div className='hidden md:flex items-center space-x-6'>
                         {user && user?.accountType !== "Instructor" && (
                             <Link to="/dashboard/cart" className='relative text-gray-200 hover:text-amber-400 group'>
-                                <FaCartShopping size={24} className='transform group-hover:scale-110 transition-transform duration-200' />
+                                <BsCart4 size={24} className='transform group-hover:scale-110 transition-transform duration-200' />
                                 {totalItems > 0 && (
                                     <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full animate-bounce'>
                                         {totalItems}
@@ -216,7 +216,7 @@ function Navbar() {
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         <span className='mr-2'>Cart</span>
-                                        <FaCartShopping />
+                                        <BsCart4 />
                                         {totalItems > 0 && (
                                             <span className='ml-2 bg-red-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full animate-pulse'>
                                                 {totalItems}

@@ -32,7 +32,7 @@ router.post("/signup", signUp)
 router.post("/sendotp", sendotp)
 
 // Route for Changing the password
-router.post("/change-password", auth, changePassword)
+router.post("/changePassword", auth, changePassword)
 
 // ********************************************************************************************************
 //                                      Reset Password

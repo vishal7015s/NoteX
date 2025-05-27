@@ -1,3 +1,5 @@
+// <<<<<<< HEAD
+// =======
 // import { useEffect, useRef, useState } from "react"
 // import { useDropzone } from "react-dropzone"
 // import { FiUploadCloud } from "react-icons/fi"
@@ -243,6 +245,4 @@ export default function Upload({
     </div>
   )
 }
-
-
-
+// >>>>>>> 66adbf1aa9ed547cd64a1eeda5b04e08a39611a2

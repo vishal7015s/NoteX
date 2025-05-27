@@ -22,7 +22,7 @@ export function updateDisplayPicture(token, formData) {
         formData,
         {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
+          Authorisation: `Bearer ${token}`,
         }
       )
       console.log(
@@ -35,6 +35,7 @@ export function updateDisplayPicture(token, formData) {
       }
       toast.success("Display Picture Updated Successfully")
       dispatch(setUser(response.data.data))
+      localStorage.setItem("user", JSON.stringify(response.data.data))
     } catch (error) {
       console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error)
       toast.error("Could Not Update Display Picture")
@@ -55,13 +56,10 @@ export function updateProfile(token, formData) {
       if (!response.data.success) {
         throw new Error(response.data.message)
       }
-      const userImage = response.data.updatedUserDetails.image
-        ? response.data.updatedUserDetails.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`
-      dispatch(
-        setUser({ ...response.data.updatedUserDetails, image: userImage })
-      )
+      
       toast.success("Profile Updated Successfully")
+      localStorage.setItem("user", JSON.stringify(response.data.data))
+
     } catch (error) {
       console.log(error)
       console.log("UPDATE_PROFILE_API API ERROR............", error)
@@ -86,7 +84,7 @@ export async function changePassword(token, formData) {
   } catch (error) {
     console.log(error)
     console.log("CHANGE_PASSWORD_API API ERROR............", error)
-    toast.error(error.response.data.message)
+    toast.error(error.message)
   }
   toast.dismiss(toastId)
 }

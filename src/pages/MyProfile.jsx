@@ -1,46 +1,46 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { FiEdit2 } from 'react-icons/fi'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { FiEdit2 } from 'react-icons/fi';
 
 function MyProfile() {
-    const { user } = useSelector((state) => state.profile)
+    const { user } = useSelector((state) => state.profile);
     const navigate = useNavigate();
-    
+
     return (
-        <div className="w-full min-h-screen bg-gradient-to-b from-richblack-900 to-richblack-800 text-richblack-5 p-4 sm:p-8">
+        <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
             {/* Main Container */}
             <div className="max-w-[1200px] mx-auto">
-                {/* Header with single Edit Profile button */}
+                {/* Header with Edit Profile button */}
                 <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-                    <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                         My Profile
                     </h1>
-                    <button 
+                    <button
                         onClick={() => navigate("/dashboard/settings")}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg  bg-yellow-100 hover:bg-yellow-100 text-richblack-900 font-medium transition-all duration-200"
+                        className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 rounded-lg bg-blue-100 hover:bg-blue-200 text-blue-600 font-medium transition-all duration-300 ease-in-out transform hover:scale-105"
                     >
-                        <FiEdit2 className="text-lg" />
+                        <FiEdit2 className="text-lg sm:text-xl" />
                         <span>Edit Profile</span>
                     </button>
                 </div>
 
                 {/* Section 1: Profile Card */}
-                <div className="bg-richblack-800 rounded-xl p-6 mb-8 shadow-lg border border-gray-700 hover:border-richblack-600 transition-all duration-300">
+                <div className="bg-white rounded-xl p-6 sm:p-8 mb-8 shadow-md border-2 border-gray-300 hover:shadow-lg transition-all duration-300">
                     <div className="flex flex-col sm:flex-row items-center gap-6">
                         <div className="flex items-center gap-4">
-                            <img 
-                                src={user?.image} 
-                                className='aspect-square w-16 sm:w-20 h-16 sm:h-20 rounded-full object-cover border-2 border-yellow-200'
-                                alt="Profile" 
+                            <img
+                                src={user?.image}
+                                className="aspect-square w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-full object-cover border-2 border-blue-200 transform hover:scale-105 transition-transform duration-200"
+                                alt="Profile"
                             />
                             <div>
-                                <p className="text-lg sm:text-xl font-bold text-white">
+                                <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
                                     {user?.firstName + " " + user?.lastName}
                                 </p>
-                                <p className="text-sm sm:text-base  text-richblack-200">{user?.email}</p>
-                                <p className="text-xs sm:text-sm mt-1 mb-1 px-2 py-1 bg-richblack-700 rounded-full inline-block">
-                                   ( {user?.accountType} )
+                                <p className="text-sm sm:text-base text-gray-600">{user?.email}</p>
+                                <p className="text-xs sm:text-sm mt-2 px-3 py-1 bg-blue-50 rounded-full inline-block text-blue-600 font-medium">
+                                    {user?.accountType}
                                 </p>
                             </div>
                         </div>
@@ -48,70 +48,185 @@ function MyProfile() {
                 </div>
 
                 {/* Section 2: About */}
-                <div className="bg-richblack-800 rounded-xl p-6 mb-8 shadow-lg border border-gray-700">
-                    <h2 className="text-lg sm:text-xl font-bold text-white mb-4">About</h2>
-                    <p className={`text-richblack-100 p-4 rounded-lg bg-richblack-700 ${!user?.additionalDetails?.about ? "italic text-richblack-400" : ""}`}>
-                        {user?.additionalDetails?.about ?? "if you write something about yourself click on edit profile button..."}
+                <div className="bg-white rounded-xl p-6 sm:p-8 mb-8 shadow-md border-2 border-gray-300 hover:shadow-lg transition-all duration-300">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-4">About</h2>
+                    <p className={`text-sm sm:text-base p-4 rounded-lg bg-gradient-to-r from-blue-50 to-gray-50 ${!user?.additionalDetails?.about ? "italic text-gray-500" : "text-gray-700"}`}>
+                        {user?.additionalDetails?.about ?? "Write something about yourself by clicking the Edit Profile button..."}
                     </p>
                 </div>
 
                 {/* Section 3: Personal Details */}
-                <div className=" bg-richblack-800 rounded-xl p-6 shadow-lg border border-gray-700">
-                    <h2 className="text-lg sm:text-xl font-bold text-white ">Personal Details</h2>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-white rounded-xl p-6 sm:p-8 shadow-md border-2 border-gray-300 hover:shadow-lg transition-all duration-300">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-6">Personal Details</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         {/* Row 1 */}
-                        <DetailItem 
-                            label="First Name" 
-                            placeholder={user?.firstName} 
+                        <DetailItem
+                            label="First Name"
+                            value={user?.firstName}
+                            placeholder="Not specified"
                         />
-                            <DetailItem 
-                                label="Last Name" 
-                                placeholder={user?.lastName} 
-                            />
-                        <DetailItem 
-                            label="Email" 
-                            placeholder={user?.email} 
+                        <DetailItem
+                            label="Last Name"
+                            value={user?.lastName}
+                            placeholder="Not specified"
                         />
-                        
                         {/* Row 2 */}
-                        <DetailItem 
-                            label="Gender" 
-                            value={user?.additionalDetails?.gender} 
-                            placeholder="Not specified" 
+                        <DetailItem
+                            label="Email"
+                            value={user?.email}
+                            placeholder="Not specified"
                         />
-                        
+                        <DetailItem
+                            label="Gender"
+                            value={user?.additionalDetails?.gender}
+                            placeholder="Not specified"
+                        />
                         {/* Row 3 */}
-                        <DetailItem 
-                            label="Phone Number" 
-                            value={user?.additionalDetails?.contactNumber} 
-                            placeholder="Not specified" 
+                        <DetailItem
+                            label="Phone Number"
+                            value={user?.additionalDetails?.contactNumber}
+                            placeholder="Not specified"
                         />
-                        <DetailItem 
-                            label="Date of Birth" 
-                            value={user?.additionalDetails?.dateOfBirth} 
-                            placeholder="Not specified" 
+                        <DetailItem
+                            label="Date of Birth"
+                            value={user?.additionalDetails?.dateOfBirth}
+                            placeholder="Not specified"
                         />
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-// Simplified Detail Item Component without edit icon
+// Updated Detail Item Component
 function DetailItem({ label, value, placeholder }) {
     return (
-        <div className="flex flex-col gap-1 p-3 sm:p-4 rounded-lg bg-richblack-700">
-            <p className="text-xs sm:text-sm text-richblack-300">{label}</p>
-            <p className={`text-sm sm:text-base font-medium ${!value ? "italic text-richblack-400" : "text-white"}`}>
+        <div className="flex flex-col gap-2 p-3 sm:p-4 rounded-lg bg-gradient-to-r from-blue-50 to-gray-50 transition-all duration-200 hover:bg-blue-100">
+            <p className="text-xs sm:text-sm text-gray-500">{label}</p>
+            <p className={`text-sm sm:text-base font-medium ${!value ? "italic text-gray-500" : "text-gray-800"}`}>
                 {value || placeholder}
             </p>
         </div>
-    )
+    );
 }
 
-export default MyProfile
+export default MyProfile;
+
+// import React from 'react'
+// import { useSelector } from 'react-redux'
+// import { useNavigate } from 'react-router-dom'
+// import { FiEdit2 } from 'react-icons/fi'
+
+// function MyProfile() {
+//     const { user } = useSelector((state) => state.profile)
+//     const navigate = useNavigate();
+    
+//     return (
+//         <div className="w-full min-h-screen bg-gradient-to-b from-richblack-900 to-richblack-800 text-richblack-5 p-4 sm:p-8">
+//             {/* Main Container */}
+//             <div className="max-w-[1200px] mx-auto">
+//                 {/* Header with single Edit Profile button */}
+//                 <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+//                     <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-yellow-400 bg-clip-text text-transparent">
+//                         My Profile
+//                     </h1>
+//                     <button 
+//                         onClick={() => navigate("/dashboard/settings")}
+//                         className="flex items-center gap-2 px-4 py-2 rounded-lg  bg-yellow-100 hover:bg-yellow-100 text-richblack-900 font-medium transition-all duration-200"
+//                     >
+//                         <FiEdit2 className="text-lg" />
+//                         <span>Edit Profile</span>
+//                     </button>
+//                 </div>
+
+//                 {/* Section 1: Profile Card */}
+//                 <div className="bg-richblack-800 rounded-xl p-6 mb-8 shadow-lg border border-gray-700 hover:border-richblack-600 transition-all duration-300">
+//                     <div className="flex flex-col sm:flex-row items-center gap-6">
+//                         <div className="flex items-center gap-4">
+//                             <img 
+//                                 src={user?.image} 
+//                                 className='aspect-square w-16 sm:w-20 h-16 sm:h-20 rounded-full object-cover border-2 border-yellow-200'
+//                                 alt="Profile" 
+//                             />
+//                             <div>
+//                                 <p className="text-lg sm:text-xl font-bold text-white">
+//                                     {user?.firstName + " " + user?.lastName}
+//                                 </p>
+//                                 <p className="text-sm sm:text-base  text-richblack-200">{user?.email}</p>
+//                                 <p className="text-xs sm:text-sm mt-1 mb-1 px-2 py-1 bg-richblack-700 rounded-full inline-block">
+//                                    ( {user?.accountType} )
+//                                 </p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Section 2: About */}
+//                 <div className="bg-richblack-800 rounded-xl p-6 mb-8 shadow-lg border border-gray-700">
+//                     <h2 className="text-lg sm:text-xl font-bold text-white mb-4">About</h2>
+//                     <p className={`text-richblack-100 p-4 rounded-lg bg-richblack-700 ${!user?.additionalDetails?.about ? "italic text-richblack-400" : ""}`}>
+//                         {user?.additionalDetails?.about ?? "if you write something about yourself click on edit profile button..."}
+//                     </p>
+//                 </div>
+
+//                 {/* Section 3: Personal Details */}
+//                 <div className=" bg-richblack-800 rounded-xl p-6 shadow-lg border border-gray-700">
+//                     <h2 className="text-lg sm:text-xl font-bold text-white ">Personal Details</h2>
+                    
+//                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+//                         {/* Row 1 */}
+//                         <DetailItem 
+//                             label="First Name" 
+//                             placeholder={user?.firstName} 
+//                         />
+//                             <DetailItem 
+//                                 label="Last Name" 
+//                                 placeholder={user?.lastName} 
+//                             />
+//                         <DetailItem 
+//                             label="Email" 
+//                             placeholder={user?.email} 
+//                         />
+                        
+//                         {/* Row 2 */}
+//                         <DetailItem 
+//                             label="Gender" 
+//                             placeholder={user?.additionalDetails?.gender} 
+//                             // placeholder="Not specified" 
+//                         />
+                        
+//                         {/* Row 3 */}
+//                         <DetailItem 
+//                             label="Phone Number" 
+//                             placeholder={user?.additionalDetails?.contactNumber} 
+//                             // placeholder="Not specified" 
+//                         />
+//                         <DetailItem 
+//                             label="Date of Birth" 
+//                             placeholder={user?.additionalDetails?.dateOfBirth} 
+//                             // placeholder="Not specified" 
+//                         />
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
+// // Simplified Detail Item Component without edit icon
+// function DetailItem({ label, value, placeholder }) {
+//     return (
+//         <div className="flex flex-col gap-1 p-3 sm:p-4 rounded-lg bg-richblack-700">
+//             <p className="text-xs sm:text-sm text-richblack-300">{label}</p>
+//             <p className={`text-sm sm:text-base font-medium ${!value ? "italic text-richblack-400" : "text-white"}`}>
+//                 {value || placeholder}
+//             </p>
+//         </div>
+//     )
+// }
+
+// export default MyProfile
 
 
 // import React from 'react'
