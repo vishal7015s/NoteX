@@ -41,7 +41,7 @@ exports.resetPasswordToken = async(req, res) => {
             success: false,
             message: error.message
         })
-    }
+    }``
 }
 
 exports.resetPassword = async(req, res) => {

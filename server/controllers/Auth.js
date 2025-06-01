@@ -177,10 +177,14 @@ exports.login = async(req, res) => {
 
             //generate cookie
             
+            // const options = {
+            //     expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+            //     httpOnly: true,
+            // }
             const options = {
-                expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year
                 httpOnly: true,
-            }
+            };
             res.cookie("token", token, options).status(200).json({
                 success: true,
                 message: "User logged in successfully",
