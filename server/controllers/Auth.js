@@ -182,7 +182,7 @@ exports.login = async(req, res) => {
             //     httpOnly: true,
             // }
             const options = {
-                expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year
+                expires: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000), // 21 दिन
                 httpOnly: true,
             };
             res.cookie("token", token, options).status(200).json({
