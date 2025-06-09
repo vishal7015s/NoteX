@@ -47,7 +47,7 @@ function App() {
           <Route path="/update-password/:id" element={<UpdatePassword />} />
           <Route
             // path='dashboard'
-            element={
+            element={ 
               <PrivateRoute>
                 <Dashboard></Dashboard>
               </PrivateRoute>
