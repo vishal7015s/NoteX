@@ -1,5 +1,4 @@
 const Course = require('../models/Course');
-// const Tag = require('../models/Tag');
 const Category = require('../models/Category');
 const User = require('../models/User');
 const Section = require("../models/Section");
@@ -7,10 +6,8 @@ const SubSection = require("../models/SubSection");
 const {uploadImageToCloudinary} = require('../utils/imageUploader');
 const CourseProgress = require("../models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
-
 require("dotenv").config();
 
-// create course handler function
 
 exports.createCourse = async(req, res) => {
     try{

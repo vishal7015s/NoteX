@@ -16,8 +16,6 @@
 // module.exports = mongoose.model("RatingAndReview", ratingAndReview)
 
 const mongoose = require("mongoose");
-
-// Define the RatingAndReview schema
 const ratingAndReview = new mongoose.Schema({
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
