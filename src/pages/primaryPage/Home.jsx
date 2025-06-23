@@ -248,7 +248,6 @@ function Home() {
           </motion.div>
         </div>
       </section>
-
       <ReviewSlider/>
       <Footer/>
     </div>

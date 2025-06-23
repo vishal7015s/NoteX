@@ -1,6 +1,6 @@
 const SubSection = require('../models/SubSection');
 const Section = require('../models/Section');
-const uploadImageToCloudinary = require('../utils/imageUploader');
+const {uploadImageToCloudinary} = require('../utils/imageUploader');
 require("dotenv").config();
 
 // exports.createSubSection = async(req, res) => {
@@ -258,11 +258,14 @@ exports.createSubSection = async (req, res) => {
       // Return the updated section in the response
       return res.status(200).json({ success: true, data: updatedSection })
     } catch (error) {
+      console.log("hello error aa gya")
+      console.log(error)
       // Handle any errors that may occur during the process
       console.error("Error creating new sub-section:", error)
       return res.status(500).json({
         success: false,
-        message: "Internal server errorrrrrrrrrrrrrrr",
+        message: "Internal",
+        // message: error.message,
         error: error,
       })
     }
