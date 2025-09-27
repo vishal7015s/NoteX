@@ -49,10 +49,12 @@ app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/courses", courseRoutes);
 
+
+
 app.get("/", (req, res) => {
     return res.json({
         success: true,
-        message: "Your server is up and running..."
+        message: "Your server is up and running"
     });
 });
 

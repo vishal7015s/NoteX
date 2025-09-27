@@ -420,12 +420,14 @@ import ViewCourse from './pages/ViewCourse';
 import VideoDetails from "./components/ViewCourse/VideoDetails"
 import Instructor from './components/InstructorDashboard/Instructor';
 import Settings from './components/Settings';
+// import CourseSelector from "./components/checkflow"
 
 function App() {
 
   const { user } = useSelector((state) => state.profile)
   return (
     <div>
+      {/* <CourseSelector/> */}
       <Navbar></Navbar>
       <Routes>
           <Route path="/" element={<Home />} />
